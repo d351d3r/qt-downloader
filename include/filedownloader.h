@@ -5,8 +5,8 @@
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QFile>
-class FileDownloader : public QObject
-{
+
+class FileDownloader : public QObject {
     Q_OBJECT
 
 public:
@@ -17,8 +17,8 @@ public:
 
 signals:
     void downloadProgress(qint64 bytesRead, qint64 totalBytes);
-    void downloaded();
-    void downloadError(QString errorString);
+    void downloaded(const QString &filePath); // Изменен для передачи пути к файлу
+    void downloadError(const QString &errorString);
 
 private slots:
     void onDownloadProgress(qint64 bytesRead, qint64 totalBytes);
@@ -30,7 +30,7 @@ private:
     QNetworkReply *currentReply;
     QFile *downloadedFile;
     QString savePath;
-    bool downloading; // Флаг, указывающий на состояние скачивания
+    bool downloading;
 };
 
 #endif // FILEDOWNLOADER_H
