@@ -20,9 +20,11 @@ set(PROJECT_SOURCES
         src/mainwindow.cpp
         src/filedownloader.cpp
         src/mainwindowmodel.cpp
+        src/downloadhistory.cpp
         include/mainwindow.h
         include/mainwindowmodel.h
         include/filedownloader.h
+        include/downloadhistory.h
         src/mainwindow.ui
 )
 
